@@ -26,7 +26,6 @@ public class Game extends JPanel implements ActionListener, MouseListener, Mouse
         }
     }
 
-    // Состояние игры и невидимые хитбоксы кнопок поверх картинки game-menu.png
     private int gameState = Constant.STATE_MENU;
     private final Rectangle startButtonBounds = new Rectangle(370, 210, 260, 80);
     private final Rectangle exitButtonBounds = new Rectangle(370, 315, 260, 80);
@@ -212,11 +211,11 @@ public class Game extends JPanel implements ActionListener, MouseListener, Mouse
         int x = (int) (e.getX() / scaleX);
         int y = (int) (e.getY() / scaleY);
 
-        // Обработка нажатий в стартовом меню
+
         if (gameState == Constant.STATE_MENU) {
             if (startButtonBounds.contains(x, y)) {
                 gameState = Constant.STATE_PLAY;
-                lastFrameTime = System.nanoTime(); // Сброс таймера, чтобы не было рывка при старте
+                lastFrameTime = System.nanoTime();
             } else if (exitButtonBounds.contains(x, y)) {
                 System.exit(0);
             }
